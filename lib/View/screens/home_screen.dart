@@ -39,53 +39,25 @@ class _HomeScreenState extends State<HomeScreen> {
         body: screenBottomNavigation(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            BottomNavigationBarItem(
-              icon: Container(
-                width: 20.5,
-                height: 21.51,
-                margin: const EdgeInsets.only(bottom: 3.49),
-                child: Image.asset(
-                  'assets/icon/ic_home.png',
-                  color: _selectedIndex == 0 ? Colors.blue : Colors.grey,
-                ),
-              ),
+            bottomNavBarWidget(
+              image: 'assets/icon/ic_home.png',
               label: 'Home',
+              color: _selectedIndex != 0 ? Colors.grey : Colors.blue,
             ),
-            BottomNavigationBarItem(
-              icon: Container(
-                width: 20.5,
-                height: 21.51,
-                margin: const EdgeInsets.only(bottom: 3.49),
-                child: Image.asset(
-                  'assets/icon/ic_mycourse.png',
-                  color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
-                ),
-              ),
-              label: 'Home',
+            bottomNavBarWidget(
+              image: 'assets/icon/ic_mycourse.png',
+              label: 'My Course',
+              color: _selectedIndex != 1 ? Colors.grey : Colors.blue,
             ),
-            BottomNavigationBarItem(
-              icon: Container(
-                width: 20.5,
-                height: 21.51,
-                margin: const EdgeInsets.only(bottom: 3.49),
-                child: Image.asset(
-                  'assets/icon/ic_history.png',
-                  color: _selectedIndex == 2 ? Colors.blue : Colors.grey,
-                ),
-              ),
-              label: 'Home',
+            bottomNavBarWidget(
+              image: 'assets/icon/ic_history.png',
+              label: 'History',
+              color: _selectedIndex != 2 ? Colors.grey : Colors.blue,
             ),
-            BottomNavigationBarItem(
-              icon: Container(
-                width: 20.5,
-                height: 21.51,
-                margin: const EdgeInsets.only(bottom: 3.49),
-                child: Image.asset(
-                  'assets/icon/ic_profile.png',
-                  color: _selectedIndex == 3 ? Colors.blue : Colors.grey,
-                ),
-              ),
-              label: 'Home',
+            bottomNavBarWidget(
+              image: 'assets/icon/ic_profile.png',
+              label: 'Profile',
+              color: _selectedIndex != 3 ? Colors.grey : Colors.blue,
             ),
           ],
           currentIndex: _selectedIndex,
@@ -95,6 +67,25 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: _changeSelectedNavBar,
         ),
       ),
+    );
+  }
+
+  BottomNavigationBarItem bottomNavBarWidget({
+    required String image,
+    Color color = Colors.blue,
+    required String label,
+  }) {
+    return BottomNavigationBarItem(
+      icon: Container(
+        width: 20.5,
+        height: 21.51,
+        margin: const EdgeInsets.only(bottom: 3.49),
+        child: Image.asset(
+          image,
+          color: color,
+        ),
+      ),
+      label: label,
     );
   }
 }

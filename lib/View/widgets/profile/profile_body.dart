@@ -11,22 +11,27 @@ class ProfileBody extends StatelessWidget {
       child: Column(
         children: [
           buttonWidget(
+              onTap: () {},
               image: 'assets/icon/ic_profile.png',
               title: 'Edit Profile',
               textColor: blueTextStyle.copyWith(fontSize: 14.4)),
           buttonWidget(
+              onTap: () {},
               image: 'assets/icon/ic_certificate.png',
               title: 'Certificate',
               textColor: blueTextStyle.copyWith(fontSize: 14.4)),
           buttonWidget(
+              onTap: () {},
               image: 'assets/icon/ic_transaction_history.png',
               title: 'Transaction History',
               textColor: blueTextStyle.copyWith(fontSize: 14.4)),
           buttonWidget(
+              onTap: () {},
               image: 'assets/icon/ic_help_center.png',
               title: 'Help Center',
               textColor: blueTextStyle.copyWith(fontSize: 14.4)),
           buttonWidget(
+            onTap: () {},
             image: 'assets/icon/ic_logout.png',
             title: 'Logout',
             color: redColor,
@@ -38,15 +43,16 @@ class ProfileBody extends StatelessWidget {
   }
 
   Widget buttonWidget({
+    required Function()? onTap,
     required String image,
     required String title,
     Color color = Colors.white,
     required TextStyle textColor,
   }) {
-    return GestureDetector(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 15),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15),
+      child: InkWell(
+        onTap: () {},
         child: Container(
           width: double.infinity,
           height: 34,

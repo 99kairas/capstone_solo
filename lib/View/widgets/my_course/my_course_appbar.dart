@@ -9,11 +9,14 @@ class MyCourseAppBar extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Text(
-            'My Course',
-            style: blackTextStyle.copyWith(
-              fontSize: 24.88,
-              fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 16),
+            child: Text(
+              'My Course',
+              style: blackTextStyle.copyWith(
+                fontSize: 24.88,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           TabBar(
