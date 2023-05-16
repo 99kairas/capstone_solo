@@ -1,0 +1,39 @@
+import 'package:capstone_solo/View/theme/theme.dart';
+import 'package:flutter/material.dart';
+
+class ProfileAppBar extends StatelessWidget {
+  const ProfileAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Text(
+              'Profile',
+              style: blackTextStyle.copyWith(
+                fontSize: 24.88,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const CircleAvatar(
+            backgroundColor: Colors.red,
+            radius: 80,
+          ),
+          const SizedBox(height: 15),
+          Text(
+            'Chandra Lion',
+            style: blackTextStyle.copyWith(
+              fontSize: 14.4,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12.5),
+        ],
+      ),
+    );
+  }
+}
