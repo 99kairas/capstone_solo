@@ -1,4 +1,5 @@
 import 'package:capstone_solo/View/screens/edit_profile.screen.dart';
+import 'package:capstone_solo/View/screens/my_cerfiticate_screen.dart';
 import 'package:capstone_solo/View/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,13 @@ class ProfileBody extends StatelessWidget {
               title: 'Edit Profile',
               textColor: blueTextStyle.copyWith(fontSize: 14.4)),
           buttonWidget(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyCertificateScreen(),
+                    ));
+              },
               image: 'assets/icon/ic_certificate.png',
               title: 'Certificate',
               textColor: blueTextStyle.copyWith(fontSize: 14.4)),
