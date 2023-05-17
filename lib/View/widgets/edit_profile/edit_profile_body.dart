@@ -35,7 +35,7 @@ class EditProfileBody extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 100),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.15),
           InkWell(
             onTap: () {},
             child: Container(
@@ -50,7 +50,7 @@ class EditProfileBody extends StatelessWidget {
               )),
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
         ],
       ),
     );
