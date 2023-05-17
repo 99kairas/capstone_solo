@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 
 class MyCourseBody extends StatelessWidget {
   const MyCourseBody({super.key});
@@ -8,7 +9,7 @@ class MyCourseBody extends StatelessWidget {
     return TabBarView(
       children: [
         ListView.builder(
-          itemCount: 5,
+          itemCount: 15,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 31, vertical: 15),
@@ -33,12 +34,25 @@ class MyCourseBody extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    const Column(
+                    Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('UI/UX'),
-                        Text('4 / 5 Lesson'),
+                        const Text('UI/UX'),
+                        const SizedBox(height: 11),
+                        const Text('4 / 5 Lesson'),
+                        const SizedBox(height: 11),
+                        SimpleAnimationProgressBar(
+                          height: 8,
+                          width: 181,
+                          backgroundColor: Colors.blueGrey,
+                          foregrondColor: Colors.blue,
+                          ratio: 4 / 5,
+                          direction: Axis.horizontal,
+                          curve: Curves.fastLinearToSlowEaseIn,
+                          duration: const Duration(seconds: 3),
+                          borderRadius: BorderRadius.circular(10),
+                        )
                       ],
                     ),
                   ],
