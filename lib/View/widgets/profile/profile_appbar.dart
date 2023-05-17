@@ -20,7 +20,6 @@ class ProfileAppBar extends StatelessWidget {
             ),
           ),
           CircleAvatar(
-            backgroundColor: Colors.red,
             radius: 80,
             child: Image.asset('assets/images/img_profile.png'),
           ),

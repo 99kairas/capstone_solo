@@ -1,3 +1,4 @@
+import 'package:capstone_solo/View/screens/edit_profile.screen.dart';
 import 'package:capstone_solo/View/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,13 @@ class ProfileBody extends StatelessWidget {
       child: Column(
         children: [
           buttonWidget(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EditProfileScreen(),
+                    ));
+              },
               image: 'assets/icon/ic_profile.png',
               title: 'Edit Profile',
               textColor: blueTextStyle.copyWith(fontSize: 14.4)),
@@ -52,7 +59,7 @@ class ProfileBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
       child: InkWell(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           width: double.infinity,
           height: 34,
