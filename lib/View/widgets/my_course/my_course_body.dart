@@ -45,7 +45,7 @@ class MyCourseBody extends StatelessWidget {
                         SimpleAnimationProgressBar(
                           height: 8,
                           width: 181,
-                          backgroundColor: Colors.blueGrey,
+                          backgroundColor: const Color(0x666EA8FE),
                           foregrondColor: Colors.blue,
                           ratio: 4 / 5,
                           direction: Axis.horizontal,
