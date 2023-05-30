@@ -2,6 +2,69 @@ import 'package:capstone_solo/View/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 
+class OnProgress {
+  String? image;
+  String? title;
+  int? lesson;
+
+  OnProgress({
+    this.image,
+    this.title,
+    this.lesson,
+  });
+}
+
+List<OnProgress> onProgress = [
+  OnProgress(
+      image:
+          'https://banper.binsuslat.kemdikbud.go.id/ayo_kursus/front_assets/images/Infografis%20Ayo%20Kursus-1-100.jpg',
+      title: 'Kursus A',
+      lesson: 2),
+  OnProgress(
+      image:
+          'https://blog.ecampuz.com/wp-content/uploads/2020/05/tips-kursus-online-ecampuz.jpg',
+      title: 'Kursus B',
+      lesson: 3),
+  OnProgress(
+      image:
+          'https://kursus.kemdikbud.go.id/assets/images/custom/gambar1-01%201.png',
+      title: 'Kursus C',
+      lesson: 5),
+];
+
+class Complete {
+  String? image;
+  String? title;
+  int? status;
+
+  Complete({
+    this.image,
+    this.title,
+    this.status,
+  });
+}
+
+List<Complete> completed = [
+  Complete(
+    image:
+        'https://banper.binsuslat.kemdikbud.go.id/ayo_kursus/front_assets/images/Infografis%20Ayo%20Kursus-1-100.jpg',
+    title: 'Kursus A',
+    status: 0,
+  ),
+  Complete(
+    image:
+        'https://blog.ecampuz.com/wp-content/uploads/2020/05/tips-kursus-online-ecampuz.jpg',
+    title: 'Kursus B',
+    status: 1,
+  ),
+  Complete(
+    image:
+        'https://kursus.kemdikbud.go.id/assets/images/custom/gambar1-01%201.png',
+    title: 'Kursus C',
+    status: 1,
+  ),
+];
+
 class MyCourseBody extends StatelessWidget {
   const MyCourseBody({super.key});
 
@@ -10,7 +73,7 @@ class MyCourseBody extends StatelessWidget {
     return TabBarView(
       children: [
         ListView.builder(
-          itemCount: 15,
+          itemCount: onProgress.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 31, vertical: 15),
@@ -31,24 +94,27 @@ class MyCourseBody extends StatelessWidget {
                       height: 74,
                       margin: const EdgeInsets.all(13),
                       decoration: BoxDecoration(
-                        color: Colors.red,
+                        // color: Colors.red,
+                        // image: DecorationImage(
+                        //     image: NetworkImage('${onProgress[index].image}')),
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      child: Image.network('${onProgress[index].image}'),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('UI/UX'),
+                        Text('${onProgress[index].title}'),
                         const SizedBox(height: 11),
-                        const Text('4 / 5 Lesson'),
+                        Text('${onProgress[index].lesson} / 5 Lesson'),
                         const SizedBox(height: 11),
                         SimpleAnimationProgressBar(
                           height: 8,
                           width: 181,
                           backgroundColor: const Color(0x666EA8FE),
                           foregrondColor: Colors.blue,
-                          ratio: 4 / 5,
+                          ratio: onProgress[index].lesson! / 5,
                           direction: Axis.horizontal,
                           curve: Curves.fastLinearToSlowEaseIn,
                           duration: const Duration(seconds: 3),
@@ -63,7 +129,7 @@ class MyCourseBody extends StatelessWidget {
           },
         ),
         ListView.builder(
-          itemCount: 10,
+          itemCount: completed.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return Container(
@@ -81,8 +147,7 @@ class MyCourseBody extends StatelessWidget {
                     child: SizedBox(
                       height: 74,
                       width: 74,
-                      child: Image.asset(
-                          'assets/images/img_basic_microsoft_word.png'),
+                      child: Image.network('${completed[index].image}'),
                     ),
                   ),
                   Expanded(
@@ -97,7 +162,7 @@ class MyCourseBody extends StatelessWidget {
                               SizedBox(
                                 width: 104,
                                 child: Text(
-                                  'Basic Microsoft Word',
+                                  '${completed[index].title}',
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: blackTextStyle.copyWith(
@@ -109,7 +174,7 @@ class MyCourseBody extends StatelessWidget {
                               ),
                               SizedBox(
                                 width: 104,
-                                child: index % 2 == 0
+                                child: completed[index].status == 0
                                     ? Text(
                                         'Completed',
                                         style: greenTextStyle.copyWith(
@@ -131,13 +196,15 @@ class MyCourseBody extends StatelessWidget {
                           ),
                           const SizedBox(height: 12),
                           InkWell(
-                            onTap: () {},
+                            onTap: completed[index].status == 1 ? null : () {},
                             child: Container(
                               width: double.infinity,
                               height: 34,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
-                                  color: Colors.blue),
+                                  color: completed[index].status == 1
+                                      ? Colors.grey
+                                      : Colors.blue),
                               child: Center(
                                 child: Text(
                                   'See Certificate',

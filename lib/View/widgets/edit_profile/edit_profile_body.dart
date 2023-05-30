@@ -24,7 +24,7 @@ class EditProfileBody extends StatelessWidget {
             hintText: '+628123456789',
           ),
           textFormFieldWidget(
-            title: 'Fullname',
+            title: 'Password',
             hintText: '**************',
             suffixIcon: IconButton(
               onPressed: () {},
